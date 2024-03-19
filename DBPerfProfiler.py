@@ -1,5 +1,5 @@
 # Databricks notebook source
-log_location = '/path/to/log'
+event_log_location = 'dbfs:/cluster-logs/pete-test/0319-144731-5w8yvgzj/eventlog/0319-144731-5w8yvgzj_10_139_64_178/3068293179564032684/'
 
 # COMMAND ----------
 
@@ -7,28 +7,11 @@ log_location = '/path/to/log'
 
 # COMMAND ----------
 
-#%sh cp -r /databricks/driver/eventlogs/* /dbfs/tmp/dbprofiler/
-
-# COMMAND ----------
-
-# MAGIC %sh mkdir -p /Volumes/sternp/default/volume/tmp/dbprofiler/Eventlogs/Basic
-
-# COMMAND ----------
-
-# MAGIC %sh cp -r Tests/EventLogs/Basic /Volumes/sternp/default/volume/tmp/dbprofiler/Eventlogs/
-
-# COMMAND ----------
-
-# MAGIC %fs ls /Volumes/sternp/default/volume/tmp/dbprofiler/Eventlogs/Basic/
-
-# COMMAND ----------
-
 issue_manager = IssueManager()
 
 # COMMAND ----------
 
-event_log = EventLog('/Volumes/sternp/default/volume/tmp/dbprofiler/Eventlogs/Basic/*', True, './Includes/Models/eventlog_schema.json')
-# event_log.display()
+event_log = EventLog(event_log_location, True, './Includes/Models/eventlog_schema.json')
 
 # COMMAND ----------
 
