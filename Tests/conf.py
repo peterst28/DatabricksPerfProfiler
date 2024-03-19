@@ -1,0 +1,1 @@
+working_dir = '/Volumes/sternp/default/volume'
